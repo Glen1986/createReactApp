@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Gif from './Gif'
 import getGifs from '../services/getGifs'
-
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function ListOfGifs({params}) {
 
