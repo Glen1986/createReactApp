@@ -1,15 +1,14 @@
 import './App.css'
-import ListOfGifs from './components/LisOfGifs'
-import {useState} from 'react';
+import ListOfGifs from './components/ListOfGifs'
+import { Route } from 'wouter'
 
 function App() {
-  const [keyword, setKeyword] = useState('cannabis')
-
   return (
     <div className="App">
       <section className= "App-content">   
-        <button onClick = { () => setKeyword('mapache') }>click</button>
-        <ListOfGifs keyword = {keyword}/>
+        <Route component= {ListOfGifs }
+        path='/gif/:keyword'
+      />
      </section>
     </div>
   );
