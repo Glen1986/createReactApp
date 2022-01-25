@@ -6,11 +6,11 @@ function App() {
   return (
     <div className="App">
       <section className= "App-content">   
-        <Link to='/gif/chile'>gifs de Chile</Link>
-        <Link to='/gif/cannabis'>gifs de cannabis</Link>
-        <Link to='/gif/mar'>gifs de mar</Link>
+        <Link className='Link' to='/search/chile'>gifs de Chile</Link>
+        <Link className='Link' to='/search/cannabis'>gifs de cannabis</Link>
+        <Link className='Link' to='/search/mar'>gifs de mar</Link>
         <Route component= {ListOfGifs }
-        path='/gif/:keyword'
+        path='/search/:keyword'
       />
      </section>
     </div>
