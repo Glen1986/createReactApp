@@ -13,7 +13,7 @@ export default function App() {
         <Link to="/">
           <img className="App-logo" alt='Giffy logo' src='/logo.png' />
         </Link>
-        <Route
+         <Route
           component={Home}
           path="/"
         />
