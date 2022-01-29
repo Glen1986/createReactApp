@@ -26,7 +26,7 @@ return(
        <input onChange={handleInput} value={keyword} type="text"/>
 			 <input type="submit" value="buscar"/>
      </form>
- <ListOfGifs gifs = {gifs} keyword ={'cannabis'}/>
+ <ListOfGifs gifs = {gifs}/>
 		<ul>
 			{POPULAR_GIFS.map((popularGif) => (
 			<li key = {popularGif}>
