@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'wouter'
-import {useGifs} from '../../hooks/useGifs'
-import ListOfGifs from '../../components/ListOfGifs'
+import {useGifs} from 'hooks/useGifs'
+import ListOfGifs from 'components/ListOfGifs'
+import TrendingSearches from 'components/TrendingSearches'
+import './home.css'
 
-const POPULAR_GIFS = ['matrix', 'chile', 'cannabis', 'chuck_schuldiner']
 export default function Home() {
 const [keyword, setKeyword] = useState('')
 const [path, pushLocation] = useLocation()
@@ -26,14 +27,12 @@ return(
        <input onChange={handleInput} value={keyword} type="text"/>
 			 <input type="submit" value="buscar"/>
      </form>
- <ListOfGifs gifs = {gifs}/>
-		<ul>
-			{POPULAR_GIFS.map((popularGif) => (
-			<li key = {popularGif}>
-				<Link to={`/search/${popularGif}`}>Gifs de ${popularGif}</Link>
-			</li>
-			))}
-	</ul>
+		 <div className="lista">
+			  <ListOfGifs gifs = {gifs}/>
+		 </div>
+	<div className='App-Cateory'>
+		<TrendingSearches />
+	</div>
 	</>
 )
 }

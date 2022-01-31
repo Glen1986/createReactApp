@@ -24,10 +24,11 @@ button {
   font-size: 48px;
 }
 
-a {
+a, h1 {
   color: #09f;
   font-size: 32px;
   text-decoration: none;
+  margin: 2rem auto;
 }
 
 ul {
