@@ -12,7 +12,7 @@
 }
 
 .App-content {
-  background-color: #b2ebfa;
+  background-color: #000;
   color: white;
   display: flex;
   flex-direction: column;
@@ -20,4 +20,5 @@
   min-height: 100vh;
   padding: 16px;
   text-align: left;
+  padding: 4rem;
 }

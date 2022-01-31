@@ -3,6 +3,7 @@
   font-weight: bold;
   margin-bottom: 0.7rem;
   margin-top: 0.6rem;
+  margin-bottom: 2rem;
 }
 
 .Category-list {
@@ -61,4 +62,4 @@
 .Category-list-item:nth-child(5n + 5) {
 	background-color: var(--brand-color_5);
 	color: var(--theme-body-bg);
-}o
+}
