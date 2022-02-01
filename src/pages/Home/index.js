@@ -25,11 +25,12 @@ return(
 			<div className="App-results">
 				<h3 className= 'App-title'>Ultima busqueda</h3>
 			  <ListOfGifs gifs = {gifs}/>
-			</div>
-			<div className='App-Cateory'>
-				<TrendingSearches />
+
+		 </div>
+		<div className='App-Cateory'>
+			<TrendingSearches />
 		</div>
-	</div>
+
 	</>
 )
 }
