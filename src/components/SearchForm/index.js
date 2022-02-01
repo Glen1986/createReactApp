@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 export default function SearchForm ({onSubmit}) {
+
 const [keyword, setKeyword] = useState('')
 
 const handleSubmit = event => {
@@ -15,8 +16,8 @@ const handleChange = (event) =>{
 	return (
 		<>
 	   <form onSubmit={handleSubmit}>
-       <input onChange= {handleChange} value={keyword} type="text"/>
-			 <input type="submit" value="buscar"/>
+			 <button>Buscar</button>
+       <input placeholder="search Gif.." onChange={handleChange} value={keyword} type="text"/>
      </form>
 		
 		</>
