@@ -1,5 +1,7 @@
-import React, {useCallback} from 'react'
-import { useLocation } from 'wouter'
+
+import React, { useState } from 'react'
+import {  useLocation } from 'wouter'
+
 import {useGifs} from 'hooks/useGifs'
 import ListOfGifs from 'components/ListOfGifs'
 import TrendingSearches from 'components/TrendingSearches'
