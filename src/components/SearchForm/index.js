@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 
-function SearchForm({ onSubmit }){
+function SearchForm({ handleSubmit: handleSubmitFromParent }){
 const [keyword, setKeyword] = useState('')
 
 const handleSubmit = event => {
 	event.preventDefault()
-	onSubmit({keyword})
+//	onSubmit({keyword})
+//  pushLocation(`/search/${keyword}`)
+  handleSubmitFromParent({keyword})
 }
 
 const handleChange = event =>{

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import {  useLocation } from 'wouter'
 
 import {useGifs} from 'hooks/useGifs'
@@ -7,13 +7,11 @@ import ListOfGifs from 'components/ListOfGifs'
 import TrendingSearches from 'components/TrendingSearches'
 
 export default function Home() {
+const [keyword, setKeyword] = useState('')
 const [path, pushLocation] = useLocation()
 const { loading, gifs } = useGifs()
 
-
-const {loading, gifs} = useGifs({keyword})
-
-const handleSubmit = (event) =>{
+const handleSubmit = useCallback((event) =>{
 event.preventDefault()
 	console.log(keyword)
 
@@ -32,7 +30,7 @@ return(
 		<div className='App-Cateory'>
 			<TrendingSearches />
 		</div>
-
+ </div>
 	</>
 )
 }
