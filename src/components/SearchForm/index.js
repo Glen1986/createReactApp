@@ -1,58 +1,21 @@
-import React from "react"
-import { useLocation } from "wouter"
-import useForm from './hook'
-import css from "./SearchForm.module.css"
+import React, {useState} from 'react'
 
-const RATINGS = ["g", "pg", "pg-13", "r"]
+function SearchForm({ onSubmit }){
+const [keyword, setKeyword] = useState('')
 
-export default function SearchForm({
-  initialKeyword = '',
-  initialRating = RATINGS[0]
-}) {
-  const [_, pushLocation] = useLocation()
+const handleSubmit = event => {
+	event.preventDefault()
+	onSubmit({keyword})
+}
 
-  const {keyword, rating, changeKeyword, changeRating} = useForm({ initialKeyword, initialRating })
-
-  const onSubmit = ({ keyword }) => {
-    if (keyword !== '') {
-      // navegar a otra ruta
-      pushLocation(`/search/${keyword}/${rating}`)
-    }
-  }
-
-  const handleChange = (evt) => {
-    changeKeyword({ keyword: evt.target.value })
-  }
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
-    onSubmit({ keyword })
-  }
-
-  const handeChangeRating = (evt) => {
-    changeRating({ rating: evt.target.value })
-  }
-
-  return (
-    <>
-      <form onSubmit={handleSubmit} className={css["c-search"]}>
-        <button className={css["c-search-btn"]}>Buscar</button>
-        <input
-          className={css["c-search-input"]}
-          placeholder="Search a gif here..."
-          onChange={handleChange}
-          type="text"
-          value={keyword}
-        />
-        <select className={css["c-search-list"]} value={rating} onChange={handleChangeRating}>
-          <option disabled>
-            Rating:
-          </option>
-          {RATINGS.map((rating) => (
-            <option key={rating}>{rating}</option>
-          ))}
-        </select>
-      </form>
-    </>
-  )
-}l
+const handleChange = event =>{
+	setKeyword(event.target.value)
+}
+return (
+	<form  onSubmit={handleSubmit}>
+		<button>Buscar</button>
+		<input placeholder="search a Gif..." value={keyword} onChange={handleChange} type="text"/>
+	</form>
+	)
+}
+ export default React.memo(SearchForm)
