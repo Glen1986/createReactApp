@@ -4,6 +4,7 @@ import {useGifs} from 'hooks/useGifs'
 import ListOfGifs from 'components/ListOfGifs'
 import TrendingSearches from 'components/TrendingSearches'
 import './home.css'
+import SearchForm from 'components/SearchForm'
 
 export default function Home() {
 const [keyword, setKeyword] = useState('')
@@ -11,22 +12,13 @@ const [path, pushLocation] = useLocation()
 
 const { loading, gifs } = useGifs({keyword})
 
-const handleSubmit = (event) =>{
-event.preventDefault()
-	console.log(keyword)
+const handleSubmit = ({keyword}) =>{
 	pushLocation(`/search/${keyword}/`)
 }
-const handleInput = (event) =>{
-	setKeyword(event.target.value)
-}
-
 return(
 	<>
+<SearchForm onSubmit={handleSubmit}/>
 		<h3 className= 'App-title'>los Gif mas populares</h3>
-     <form onSubmit={handleSubmit}>
-       <input onChange={handleInput} value={keyword} type="text"/>
-			 <input type="submit" value="buscar"/>
-     </form>
 		 <div className="lista">
 			  <ListOfGifs gifs = {gifs}/>
 		 </div>
