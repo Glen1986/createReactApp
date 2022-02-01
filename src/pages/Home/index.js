@@ -8,7 +8,13 @@ export default function Home() {
 const [path, pushLocation] = useLocation()
 const { loading, gifs } = useGifs()
 
-const handleSubmit = useCallback(({keyword}) =>{
+
+const {loading, gifs} = useGifs({keyword})
+
+const handleSubmit = (event) =>{
+event.preventDefault()
+	console.log(keyword)
+
 	pushLocation(`/search/${keyword}/`)
 },[pushLocation])
 
