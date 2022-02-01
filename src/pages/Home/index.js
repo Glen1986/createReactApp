@@ -1,8 +1,11 @@
+
 import React, {useState} from "react"
 import { useLocation } from "wouter"
+
 import ListOfGifs from 'components/ListOfGifs'
 import {useGifs} from 'hooks/useGifs'
 import TrendingSearches from 'components/TrendingSearches'
+
 import SearchForm from 'components/SearchForm'
 
 
