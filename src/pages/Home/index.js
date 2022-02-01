@@ -1,36 +1,44 @@
 
-import React, { useState, useCallback } from 'react'
-import {  useLocation } from 'wouter'
+import React, {useState} from "react"
+import { useLocation } from "wouter"
 
-import {useGifs} from 'hooks/useGifs'
 import ListOfGifs from 'components/ListOfGifs'
+import {useGifs} from 'hooks/useGifs'
 import TrendingSearches from 'components/TrendingSearches'
 
+import SearchForm from 'components/SearchForm'
+
+
 export default function Home() {
-const [keyword, setKeyword] = useState('')
-const [path, pushLocation] = useLocation()
-const { loading, gifs } = useGifs()
+  const [keyword, setKeyword] = useState('')
+  const [path, pushLocation] = useLocation()
+  const {loading, gifs} = useGifs()
 
-const handleSubmit = useCallback((event) =>{
-event.preventDefault()
-	console.log(keyword)
+  const handleSubmit = evt => {
+    evt.preventDefault()
+    // navegar a otra ruta
+    pushLocation(`/search/${keyword}`)
+  }
 
-	pushLocation(`/search/${keyword}/`)
-},[pushLocation])
+  const handleChange = evt => {
+    setKeyword(evt.target.value)
+  }
 
-
-return(
-	<>
-		<div clasName="App-main">
-			<div className="App-results">
-				<h3 className= 'App-title'>Ultima busqueda</h3>
-			  <ListOfGifs gifs = {gifs}/>
-
-		 </div>
-		<div className='App-Cateory'>
-			<TrendingSearches />
-		</div>
- </div>
-	</>
-)
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <button>Buscar</button>
+        <input placeholder="Search a gif here..." onChange={handleChange} type='text' value={keyword} />
+      </form>
+      <div className="App-main">
+        <div className="App-results">
+          <h3 className="App-title">Ultima Busqueda</h3>
+          <ListOfGifs gifs={gifs} />
+        </div>
+        <div className="App-category">
+          <TrendingSearches />
+        </div>
+      </div>
+    </>
+  )
 }
