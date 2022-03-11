@@ -20,10 +20,6 @@ code {
     monospace;
 }
 
-button {
-  font-size: 48px;
-}
-
 a, h1 {
   color: #09f;
   font-size: 32px;
@@ -43,9 +39,8 @@ form {
   justify-content: center;
 }
 
-input[type=text] {
+/*input[type=text] {
   border-radius: 6px;
   font-size: 16px;
-  border: 1px solid #ccc;
   padding: 4px 16px;
-}
+}*/

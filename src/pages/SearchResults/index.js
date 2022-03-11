@@ -4,25 +4,32 @@ import ListOfGifs from 'components/ListOfGifs'
 import {useGifs} from 'hooks/useGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
+import useSEO from 'hooks/useSEO'
 
 export default function SearchResults ({ params }) {
   const { keyword } = params
   const { loading, gifs, setPage } = useGifs({keyword})
   const externalRef = useRef()
-  const {isNearScreen} = useNearScreen({externalRef : loading ? null : externalRef, once : false})
+  const {isNearScreen} = useNearScreen({
+  externalRef : loading ? null : externalRef, once :false 
+})
 // const debounceHandleNextPage = useRef()
 //console.log('isNearScreen')
   
 //const handleNextPage =() => setPage(prevPage => prevPage + 1)
-//const handleNextPage = () => console.log('next page')
 
+const title = gifs 
+    ? `${gifs.length} resultados de ${keyword}` 
+    : loading ?  'Cargndo...' 
+    : ''
+useSEO({title})
 const debounceHandleNextPage = useCallback(debounce(
-() => setPage(prevPage => prevPage + 1), 1000
+() => setPage(prevPage => prevPage + 1), 600
 ), [])
 
 useEffect(()=>{
 if(isNearScreen)debounceHandleNextPage()
-console.log('isNearScreen')
+//console.log('isNearScreen')
 },[debounceHandleNextPage, isNearScreen])
   return <>
     {loading
