@@ -23,8 +23,7 @@ const fromRef = useRef()
   ? IntersectionObserver
     : import('intersection-observer')
       ).then(() =>{
-      observer = new IntersectionObserver
-      (onChange, {
+      observer = new IntersectionObserver (onChange, {
         rootMargin: distance
       })
       observer.observe(element)

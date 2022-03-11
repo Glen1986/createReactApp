@@ -10,7 +10,7 @@ import {GifsContextProvier} from './context/GifsContext';
 
 export default function App() {
   return (
-<StaticContext.Provider value = {{name: 'Glen.dev',
+  <StaticContext.Provider value = {{name: 'Glen.dev',
       suscribrte: true}}>
       <div className="App">
         <section className="App-content">
@@ -18,9 +18,9 @@ export default function App() {
             <h1>Giffy</h1>
           </Link>
           <GifsContextProvier>
-           <Route
-            component={Home}
-            path="/"
+            <Route
+             component={Home}
+             path="/"
             />
             <Route
               component={SearchResults}
@@ -28,6 +28,10 @@ export default function App() {
             <Route
               component={Detail}
               path="/gif/:id"
+            />
+           <Route
+             component={()=> <h1> 404 ERROR :( </h1>}
+              path="/404"
             />
           </GifsContextProvier>
         </section>

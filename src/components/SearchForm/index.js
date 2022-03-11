@@ -2,16 +2,16 @@
 import React, {useState} from "react"
 import './styles.css'
 
-export default function SearchForm({onSubmit}) {
+ function SearchForm({onSubmit}) {
 const [keyword, setKeyword] = useState('')
+
+  const handleSubmit= (evt) => {
+    evt.preventDefault()
+    onSubmit({ keyword })
+  }
 
   const handleChange = (evt) => {
     setKeyword(evt.target.value)
-  }
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
-    onSubmit({ keyword })
   }
 
   return (
@@ -28,4 +28,4 @@ const [keyword, setKeyword] = useState('')
     </>
   )
 }
-
+export default React.memo(SearchForm)
